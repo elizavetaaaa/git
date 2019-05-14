@@ -1,11 +1,8 @@
 package com.company;
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.awt.event.*;
-import java.util.List;
+
 
 
 public class Main {
@@ -18,8 +15,8 @@ public class Main {
     public static void main(String[] args) {
 
 
-       //final dict mydict = new dict();
-        dict mydict = new dict();
+
+        dict mydict = new dict();//new object of dict class
         number = 1;
         //here I will use:
         JPanel p, p1, p2;
@@ -29,20 +26,15 @@ public class Main {
         final JFrame myFrame = new JFrame();
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrame.setLayout(new BorderLayout() );
-        //myFrame = new JFrame("Quiz game");
         myFrame.setBounds(0, 0, 300, 200);
 
         //Defining panels
         p = new JPanel();
         myFrame.add(p, BorderLayout.NORTH);
-
         p1 = new JPanel();
         myFrame.add(p1, BorderLayout.CENTER);
-
         p2= new JPanel();
         myFrame.add(p2, BorderLayout.SOUTH);
-
-
 
         //Defining Label for question
             title1 = new JLabel("Вопрос 1:");//label for 1 panel
@@ -63,18 +55,11 @@ public class Main {
             }
         });
 
-
-
-
-
-
-
-
-        //Defining inputButton Button
+            //Defining inputButton Button
             inputButton = new JButton("submit");
             inputButton.setBounds(210, 50, 80, 30);
 
-
+            //adding components to panels
             p.add(title1);
             p1.add(title);
             p2.add(input);
@@ -88,32 +73,30 @@ public class Main {
         inputButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (number < 7) number++;
+                if (number < 10) number++;//7
                 int key = mydict.keys.get(mydict.index);
                 String a = input.getText();
                 title1.setText("Вопрос "+ number);
 
                 if (a.equals(mydict.getQuestion(key).getAnswer())){
-                    System.out.println("true");
+                    System.out.println("true");//check is answer correct or not
                     mydict.maks ++; }
 
-                if (mydict.index <6){
+                if (mydict.index <9){//6
                     mydict.index++;
                     mydict.quiz();
                     }
-
-
-                else {
-                    //myFrame.setVisible(false);
+                else {//appears when all questions are answered
                     JPanel pan=new JPanel();
-                    pan.add(new JLabel("Ваш балл " + mydict.maks + "/7"));
+                    pan.add(new JLabel("Ваш балл " + mydict.maks + "/10"));//7
                     pan.add(new JLabel("Хотите пройти тест еще раз?", SwingConstants.CENTER));
 
                     JButton ok = new JButton("да");
                     pan.add(ok);
                     JButton cancel =  new JButton("выход");
                     pan.add(cancel);
-                    cancel.addActionListener(new ActionListener() {
+
+                    cancel.addActionListener(new ActionListener() {//disposing everything in click case
                         @Override
                         public void actionPerformed(ActionEvent actionEvent) {
                             myFrame.dispose();
@@ -121,39 +104,36 @@ public class Main {
                     });
 
 
-                    ok.addActionListener(new ActionListener() {
+                    ok.addActionListener(new ActionListener() {//play quiz again in clck case
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             result.setVisible(false);
-                          //  myFrame.setVisible(false);
-                            mydict.index=0;
-                            number=1;//
-                            mydict.maks=0;
+                            mydict.index=0;//обновление переменной
+                            number=1;//обновление переменной
+                            mydict.maks=0;//обновление переменной
 
-                            dict mydict = new dict();//новый словарь чтоб все смешать
+                            dict mydict = new dict();//новый словарь чтобы изменить порядок вопросов
                             mydict.quiz();
-                           // myFrame.setVisible(true);
 
                             title1.setText("Вопрос "+ number);
-                            myFrame.repaint();
+                            myFrame.repaint();//создаем фрейм заново
                         }});
 
                     pan.setLayout(new FlowLayout());
                     pan.setSize(300,300);
-                    //pan.setVisible(true);
 
-
+                    //creting a msg appears in case test is finished
                     result = new JDialog(myFrame);
                     result.setSize(300,200);
                     result.setLocationRelativeTo(myFrame);
                     result.add(pan);
                     result.setVisible(true);
-                    System.out.println(mydict.maks);
+                    System.out.println(mydict.maks);//prints score to console
                     
                 }}
 
         });
-        mydict.quiz();
+        mydict.quiz();//первый вызов метода при запуске прг
     }}
 
 
