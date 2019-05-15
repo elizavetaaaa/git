@@ -93,12 +93,12 @@ public class Main {
                     pan.add(new JLabel("Хотите пройти тест еще раз?", SwingConstants.CENTER));
 
                     JButton ok = new JButton("да");
-                    //pan.add(ok);
-                    //ok.setHorizontalAlignment(JButton.CENTER);
                     pan.add(ok);
                     //pan.add(ok,BorderLayout.SOUTH);
+
                     JButton cancel =  new JButton("выход");
-                    pan.add(cancel);
+                    pan.add(cancel,BorderLayout.PAGE_END);
+
 
                     cancel.addActionListener(new ActionListener() {//disposing everything in click case
                         @Override
@@ -124,11 +124,11 @@ public class Main {
                         }});
 
                     pan.setLayout(new FlowLayout());
-                    pan.setSize(300,200);
+                    pan.setSize(300,150);
 
                     //creting a msg appears in case test is finished
                     result = new JDialog(myFrame);
-                    result.setSize(300,200);
+                    result.setSize(300,150);
                     result.setLocationRelativeTo(myFrame);
                     result.add(pan);
                     result.setVisible(true);
