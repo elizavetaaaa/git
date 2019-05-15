@@ -26,7 +26,7 @@ public class Main {
         final JFrame myFrame = new JFrame();
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrame.setLayout(new BorderLayout() );
-        myFrame.setBounds(0, 0, 600, 200);
+        myFrame.setBounds(50, 100, 350, 250);//is it here?
 
         //Defining panels
         p = new JPanel();
@@ -82,18 +82,21 @@ public class Main {
                     JPanel pan=new JPanel();
                     String ex = "Отлично!";
                     String good = "Неплохо!";
-                    String bad = "Вы не знаток Кыргызстана. ";
+                    String bad = "Хмм... ";
                     if (mydict.maks==10)
-                        pan.add(new JLabel(ex +"Ваш балл " + mydict.maks + "/10"));
+                        pan.add(new JLabel(ex +" Ваш балл " + mydict.maks + "/10!"));
                     else if (mydict.maks>5 && mydict.maks<10)
-                        pan.add(new JLabel(good+"Ваш балл " + mydict.maks + "/10"));
+                        pan.add(new JLabel(good+" Ваш балл " + mydict.maks + "/10!"));
                     else
-                        pan.add(new JLabel(bad+ "Ваш балл " + mydict.maks + "/10"));
-                    //pan.add(new JLabel("Ваш балл " + mydict.maks + "/10"));//7
+                        pan.add(new JLabel(bad+ " Ваш балл " + mydict.maks + "/10!"));
+
                     pan.add(new JLabel("Хотите пройти тест еще раз?", SwingConstants.CENTER));
 
                     JButton ok = new JButton("да");
+                    //pan.add(ok);
+                    //ok.setHorizontalAlignment(JButton.CENTER);
                     pan.add(ok);
+                    //pan.add(ok,BorderLayout.SOUTH);
                     JButton cancel =  new JButton("выход");
                     pan.add(cancel);
 
@@ -121,7 +124,7 @@ public class Main {
                         }});
 
                     pan.setLayout(new FlowLayout());
-                    pan.setSize(300,300);
+                    pan.setSize(300,200);
 
                     //creting a msg appears in case test is finished
                     result = new JDialog(myFrame);
