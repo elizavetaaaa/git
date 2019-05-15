@@ -26,7 +26,7 @@ public class Main {
         final JFrame myFrame = new JFrame();
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrame.setLayout(new BorderLayout() );
-        myFrame.setBounds(0, 0, 300, 200);
+        myFrame.setBounds(0, 0, 600, 200);
 
         //Defining panels
         p = new JPanel();
@@ -80,7 +80,16 @@ public class Main {
                     }
                 else {//appears when all questions are answered
                     JPanel pan=new JPanel();
-                    pan.add(new JLabel("Ваш балл " + mydict.maks + "/10"));//7
+                    String ex = "Отлично!";
+                    String good = "Неплохо!";
+                    String bad = "Вы не знаток Кыргызстана. ";
+                    if (mydict.maks==10)
+                        pan.add(new JLabel(ex +"Ваш балл " + mydict.maks + "/10"));
+                    else if (mydict.maks>5 && mydict.maks<10)
+                        pan.add(new JLabel(good+"Ваш балл " + mydict.maks + "/10"));
+                    else
+                        pan.add(new JLabel(bad+ "Ваш балл " + mydict.maks + "/10"));
+                    //pan.add(new JLabel("Ваш балл " + mydict.maks + "/10"));//7
                     pan.add(new JLabel("Хотите пройти тест еще раз?", SwingConstants.CENTER));
 
                     JButton ok = new JButton("да");
