@@ -11,10 +11,8 @@ public class Question {
 
     }
 
-    public String getQuestion() {
-        return Question;
-    }
-    public String getAnswer() {
+    String getQuestion() { return Question; }
+    String getAnswer() {
         return Answer;
     }
 

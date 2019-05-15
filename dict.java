@@ -24,7 +24,7 @@ public class dict  {
         dict.put(6, new Question("<html>Суймонкул Чокморов - знаменитый ... ?<br/> <br/>a)врач<br/>b)поэт,драматург<br/>c)актер, художник<br/>d)режиссер</html>", "c"));
         dict.put(7, new Question("<html>Какой город Кыргызстана носил <br/> имя выдающегося исследователя <br/>Центральной Азии? <br/><br/>a)Бишкек<br/>b)Токмок<br/>c)Балыкчи<br/>d)Каракол</html>", "d"));
         dict.put(8, new Question("<html>Чем разрисованы пещеры Ак-Чункур?<br/> <br/>a)красной охрой<br/>b)черной золой<br/>c)известняком<br/>d)алкидными красками</html>", "a"));
-        dict.put(9, new Question("<html>Ключевая очка наркоторговли?<br/> <br/>a)Бишкек<br/>b)Ош<br/>c)Тюп<br/>d)Кадамжай</html>", "b"));
+        dict.put(9, new Question("<html>Ключевая точка наркоторговли?<br/> <br/>a)Бишкек<br/>b)Ош<br/>c)Тюп<br/>d)Кадамжай</html>", "b"));
         keys = new ArrayList<>(dict.keySet());
         Collections.shuffle(keys);//mix ids of dict
     }
@@ -37,13 +37,13 @@ public class dict  {
         return dict.get(id);
     }
 
-    public  void quiz(){//возникновение нового вопроса на title
+    void quiz(){//возникновение нового вопроса на title
 
-        myMain.input.setText("");
+        Main.input.setText("");
         int key = keys.get(index);
         Question q = dict.get(key);
         String question  = q.getQuestion();
-        myMain.title.setText(question);
+        Main.title.setText(question);
         //index++;
     }
 
