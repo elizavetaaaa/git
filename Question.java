@@ -20,9 +20,5 @@ public class Question {
 
 
 
-    @Override
-    public String toString() {
-        return "Question :\n"+ Question +
-                "\nAnswer : \n" + Answer ;
-    }
+
 }

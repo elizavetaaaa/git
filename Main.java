@@ -47,14 +47,6 @@ public class Main {
             input.setForeground(Color.GRAY);
             input.setPreferredSize(new Dimension(100,25));
 
-         //очищение инпута при касании курсором
-            input.addMouseListener(new MouseAdapter(){
-            @Override
-            public void mouseClicked(MouseEvent e){
-                input.setText("");
-            }
-        });
-
             //Defining inputButton Button
             inputButton = new JButton("submit");
             inputButton.setBounds(210, 50, 80, 30);
@@ -73,7 +65,7 @@ public class Main {
         inputButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (number < 10) number++;//7
+                if (number < 10) number++;
                 int key = mydict.keys.get(mydict.index);
                 String a = input.getText();
                 title1.setText("Вопрос "+ number);
@@ -82,7 +74,7 @@ public class Main {
                     System.out.println("true");//check is answer correct or not
                     mydict.maks ++; }
 
-                if (mydict.index <9){//6
+                if (mydict.index <9){
                     mydict.index++;
                     mydict.quiz();
                     }
@@ -104,7 +96,7 @@ public class Main {
                     });
 
 
-                    ok.addActionListener(new ActionListener() {//play quiz again in clck case
+                    ok.addActionListener(new ActionListener() {//play quiz again in click case
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             result.setVisible(false);
