@@ -16,7 +16,7 @@ public class Main {
 
 
 
-        dict mydict = new dict();//new object of dict class
+        Dict mydict = new Dict();//new object of dict class
         number = 1;
         //here I will use:
         JPanel p, p1, p2;
@@ -116,7 +116,7 @@ public class Main {
                             number=1;//обновление переменной
                             mydict.maks=0;//обновление переменной
 
-                            dict mydict = new dict();//новый словарь чтобы изменить порядок вопросов
+                            Dict mydict = new Dict();//новый словарь чтобы изменить порядок вопросов
                             mydict.quiz();
 
                             title1.setText("Вопрос "+ number);
